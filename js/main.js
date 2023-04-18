@@ -169,7 +169,7 @@ myBoxPopUp.forEach((element,i) => {
         myPop.innerHTML += `
         <div class="pop-up">
            <div class="image-box">
-           <img src="./../images/about${i+1}.jpg" alt="person photo">
+           <img src="images/about${i+1}.jpg" alt="person photo">
            </div>
            <div class="info-person">
            <h1>Age : 22</h1>
