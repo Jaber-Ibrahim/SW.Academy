@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jaber Design</title>
-    <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
     <link rel="stylesheet" href="./css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
@@ -58,8 +57,8 @@
             <ul class="links">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">about</a></li>
-              <li><a href="#">programs</a></li>
-              <li><a href="#">service</a></li>
+              <li><a href="#programs">programs</a></li>
+              <li><a href="#gallery">Gallery</a></li>
               <li><a href="#">contact</a></li>
             </ul>
           </div>
@@ -82,8 +81,8 @@
     
     
     <!-- Start About and Who WE are-->
-    <h1 class="heading" id="about">about us</h1>
     <section class="about">
+      <h1 class="heading" id="about">about us</h1>
       <div class="container">
         <div class="image-box">
           <img src="./images/landing3.jpg" alt="">
@@ -139,6 +138,96 @@
       
     </section>
     <!-- End About and Who WE are-->
+
+
+    <!-- Start Programs -->
+    <section class="programs">
+      <h1 class="heading" id="programs">Our Programs</h1>
+      <div class="container">
+        <div class="programs-info">
+          <div class="box">
+            <div class="image">
+              <img src="./images/programs1.jpg" alt="swim">
+            </div>
+            <div class="info">
+              <h1>tiny tackers</h1>
+            <p class="details">Learn to Swim - Babies from six months to around three years.It is never too early to teach  </p>
+            <span class="price">15$</span>
+            <span class="enroll">enroll</span>
+            </div>
+          </div>
+
+
+
+          <div class="box">
+            <div class="image">
+              <img src="./images/programs2.jpg" alt="swim">
+            </div>
+            <div class="info">
+              <h1>kinder kids</h1>
+            <p class="details">Learn to Swim - Preschoolers
+              Time flies when you’re having fun, and so do swim classes</p>
+            <span class="price">11$</span>
+            <span class="enroll">enroll</span>
+            </div>
+          </div>
+
+
+          <div class="box">
+            <div class="image">
+              <img src="./images/programs3.jpg" alt="swim">
+            </div>
+            <div class="info">
+              <h1>learn to swim</h1>
+            <p class="details">Swim program will soon have your child swimming freestyle, backstroke and breaststroke</p>
+            <span class="price">11$</span>
+            <span class="enroll">enroll</span>
+            </div>
+          </div>
+
+
+          <div class="box">
+            <div class="image">
+              <img src="./images/programs4.jpg" alt="swim">
+            </div>
+            <div class="info">
+              <h1>school program</h1>
+            <p class="details">Our schools program is designed to work in with busy schools needs and time schedules</p>
+            <span class="price">11$</span>
+            <span class="enroll">enroll</span>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </section>
+    <!-- End Programs -->
+
+
+    <!-- Start Gallery -->
+    <section class="gallery">
+      <h1 class="heading" id="gallery">Our Gallery</h1>
+      <div class="container slider-container">
+        <div id="slide-number" class="slide-number"></div>
+        <img src="./images/landing1.jpg" alt="">
+        <img src="./images/landing2.jpg" alt="">
+        <img src="./images/landing3.jpg" alt="">
+        <img src="./images/landing4.jpg" alt="">
+        <img src="./images/landing5.jpg" alt="">
+        <img src="./images/programs1.jpg" alt="">
+        <img src="./images/programs2.jpg" alt="">
+        <img src="./images/programs3.jpg" alt="">
+        </div>
+
+        <div class="slider-control">
+        <span id="prev" class="prev disable ">Previous</span>
+        <span id="indicators" class="indicators"></span>
+        <span id="next" class="next">Next</span>
+    </div>
+      </section>
+    <!-- End Gallery -->
     <script src="./js/main.js"></script>
   </body>
 </html>

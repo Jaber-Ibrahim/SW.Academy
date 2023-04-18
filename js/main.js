@@ -1,9 +1,24 @@
 let mylisToChangeColor = document.querySelectorAll(".colors li");
+let myList = document.querySelectorAll(".list .links li")
+let myAnchor = document.querySelectorAll(".list .links li a");
 let mySetting = document.querySelector(".setting");
 let mySpansToChangeBg = document.querySelectorAll(".change-bg span");
 let myNav = document.querySelector("nav");
 
 
+
+
+
+myAnchor.forEach((a,index) => {
+  a.addEventListener("click" , (e)=>{
+    myList.forEach((li,i) => {
+      li.classList.remove("active");
+      if (i === index) {
+        li.classList.add("active")
+      }
+    });
+  });
+});
 
 
 
@@ -183,3 +198,154 @@ myBoxPopUp.forEach((element,i) => {
        })
     })
 });
+
+// let o = window.
+let programBox =document.querySelector(".programs");
+let myProgramsBoxes =document.querySelectorAll(".programs .container .programs-info .box");
+console.log(programBox);
+console.log(myProgramsBoxes);
+
+window.onscroll = function () {
+  // console.log(programBox.offsetTop);
+  // console.log(window.scrollY);
+  if (window.scrollY >= programBox.offsetTop-400) {
+      myProgramsBoxes.forEach(box => {
+          box.style.left = 0;
+          
+        });
+      } else {
+        myProgramsBoxes.forEach(box => {
+        box.style.left = "-10000px";
+      });
+  }
+}
+
+
+
+let myImgs = document.querySelectorAll(".slider-container img");
+// console.log(myImgs);
+let imgsCount = myImgs.length;
+// console.log(imgsCount);
+let slideNumber = document.querySelector(".slider-container .slide-number");
+// console.log(slideNumber);
+let nextButton = document.querySelector(".next");
+// console.log(nextButton);
+let prevButton = document.querySelector(".prev");
+// console.log(prevButton);
+
+let myIndicators = document.querySelector(".indicators");
+
+let currentSlide ;
+
+if (localStorage.getItem("slide")) {
+  console.log(`yes and the value is ${localStorage.getItem("slide")}`);
+  currentSlide = localStorage.getItem("slide");
+} else {
+  console.log(`No and the value is`);
+  currentSlide =1 ;
+}
+
+nextButton.onclick = nextSlide ; 
+prevButton.onclick = prevSlide ; 
+
+//create ul 
+let myUl = document.createElement("ul");
+myUl.id = "counting";
+// console.log(myUl);
+//create the LIs according to the length of the img 
+for (let i = 1; i <= imgsCount; i++) {
+    let myLi = document.createElement("li");
+    myLi.innerHTML = i;
+    //set custom attribute
+    myLi.setAttribute("data-i" , i);
+    // console.log(myLi);
+    //append li to ul
+    myUl.appendChild(myLi);
+}
+myIndicators.appendChild(myUl);
+
+
+//get the new ul that we created and its children
+let ulAfterCreate = document.querySelector("#counting");
+let newLis = document.querySelectorAll("#counting li");
+
+newLis.forEach((li) => {
+    li.addEventListener("click" , ()=>{
+        currentSlide = li.dataset.i;
+        localStorage.setItem("slide",currentSlide)
+        checkData();
+    })
+});
+// console.log(ulAfterCreate);
+
+//invoke check function
+checkData();
+
+let fff = setInterval(() => {
+  if (currentSlide < imgsCount) {
+    currentSlide++;
+    localStorage.setItem("slide",currentSlide)
+  } else {
+    currentSlide = 0;
+    currentSlide++;
+  }
+  checkData();
+}, 5000);
+//next function
+function nextSlide () {
+    // console.log("next");
+    //مشان ما فينا نكبس شي لما منوصل لهي المرحلة لان بالكونسول بيكون عم يعطي اخطاء
+    if (nextButton.classList.contains("disable")) {
+        return false;
+    } else {
+        currentSlide++;
+        localStorage.setItem("slide",currentSlide)
+        checkData();
+    }
+};
+//next function
+function prevSlide () {
+    // console.log("prev");
+    if (prevButton.classList.contains("disable")) {
+        return false;
+    } else {
+        currentSlide--;
+        localStorage.setItem("slide",currentSlide)
+        checkData();
+    }
+};
+
+
+//check function 
+function checkData () {
+    slideNumber.innerHTML = `Image# ${currentSlide} of ${imgsCount}`;
+    
+    //remove active class from all imgs and li
+    newLis.forEach(li => {
+      li.classList.remove("active");
+    })
+    myImgs.forEach(img => {
+      img.classList.remove("active");
+    })
+    
+    //set active class on img with index currentSlide - 1 
+    myImgs[currentSlide - 1 ].classList.add("active");
+    //set active to li element that match the img with active class
+    ulAfterCreate.children[currentSlide - 1 ].classList.add("active");
+    
+    //check if the slide is the first one or last one to add disable class to previous or next button
+    if (currentSlide == 1) {
+        prevButton.classList.add("disable");
+    } else {
+        prevButton.classList.remove("disable");
+    }
+    if (currentSlide == imgsCount) {
+        nextButton.classList.add("disable");
+    } else {
+        nextButton.classList.remove("disable");
+    }
+  }
+
+
+
+  
