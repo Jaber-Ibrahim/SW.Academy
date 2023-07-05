@@ -620,8 +620,8 @@ nav .intro p {
 
 .slider-container {
   margin: 10px auto;
-  width: 60%;
-  height: 250px;
+  width: 80%;
+  height: 350px;
   position: relative;
 }
 .slider-container img {
@@ -701,6 +701,16 @@ nav .intro p {
   background-color: var(--main-color);
   color: white;
   pointer-events: none;
+}
+@media(max-width : 784px) {
+  .slider-control {
+    display: flex;
+    justify-content: space-between;
+  }
+  .slider-control .indicators {
+    display: none;
+  }
+
 }
 /* End gallery */
 
